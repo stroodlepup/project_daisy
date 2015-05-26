@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <form action="{{ url_for('addCommunityProfile') }}" method="post" class="">
+        <div class="col s6">
+            <label for="lastname" class="">LAST NAME<input type="" id="lastname" name="lastname"/></label>
+            <label for="firstname" class="">FIRST NAME<input type="" id="firstname" name="firstname"/></label>
+            <label for="middlename" class="">MIDDLE NAME<input type="" id="birthdate" name="middlename"/></label>
+        </div>
+        <div>
+            <label for="nickname" class="">NICKNAME<input type="" id="nickname" name="nickname"/></label>
+            <label for="birthdate" class="">BIRTHDATE<input type="" id="birthdate" name="birthdate"/></label>
+        </div>
+        <div>
+            <table id="familycompositiontable">
+            <!--table headers-THESE ARE AUTO-GENERATED. DO NOT TOUCH!-->
+            
+            <!--table contents-THESE ARE AUTO-GENERATED. DO NOT TOUCH!-->
+            </table>
+        </div>
+        <div>
+            <button type="button" id="addfamilybutton">ADD +</button>
+        </div>
+
+            <button type="submit" >Submit</button>
+    </form>
+
+
+    <script src="{{ url_for('static', filename='js/materialize.min.js')  }}"></script>
+    <script src="{{ url_for('static', filename='js/communityprofile.js')  }}"></script>
+{% endblock %}
