@@ -1,5 +1,3 @@
-from sqlalchemy.orm import backref
-
 __author__ = 'stroodlepup'
 from flask import Flask, request, session, redirect, url_for, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
@@ -11,8 +9,11 @@ DATABASE_PASSWORD="arcreactor"
 DATABASE_HOST="localhost"
 DATABASE_NAME="project_daisy"
 
+MYSQL_STRING= 'mysql://'+ DATABASE_USERNAME +':'+DATABASE_PASSWORD+'@'+DATABASE_HOST+'/'+DATABASE_NAME
+POSTGRESQL_STRING= 'postgresql://'+DATABASE_USERNAME+':'+DATABASE_PASSWORD+'@'+DATABASE_HOST+'/'+DATABASE_NAME
+
 app = Flask(__name__, static_folder='../assets', template_folder= '../views')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://'+ DATABASE_USERNAME +':'+DATABASE_PASSWORD+'@'+DATABASE_HOST+'/'+DATABASE_NAME
+app.config['SQLALCHEMY_DATABASE_URI'] = MYSQL_STRING
 app.config['SQLALCHEMY_ECHO'] = True
 
 db=SQLAlchemy(app)
