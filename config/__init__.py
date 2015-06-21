@@ -21,14 +21,14 @@ HEROKU_STRING= 'postgresql://xyfmhyseuygdge:koKeu9q-v8x3O0W9GQHNxDsX5l@ec2-107-2
 app = Flask(__name__)
 app.template_folder='../views'
 app.static_folder='../assets'
-app.config['SQLALCHEMY_DATABASE_URI'] = HEROKU_STRING
+app.config['SQLALCHEMY_DATABASE_URI'] = POSTGRESQL_STRING
 app.config['SQLALCHEMY_ECHO'] = True
 app.debug=True
 db=SQLAlchemy(app)
 
 # ADDING CONTROLLERS
-from controllers import *
 from models import *
+from controllers import *
 
 db.create_all()
 db.session.commit()
